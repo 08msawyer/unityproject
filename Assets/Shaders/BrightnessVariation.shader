@@ -6,6 +6,7 @@ Shader "Custom/BrightnessVariation"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _VariationLowerBound("Variation Lower Bound", Range(0,1)) = 0.8
     }
     SubShader
     {
@@ -35,6 +36,7 @@ Shader "Custom/BrightnessVariation"
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
+        float _VariationLowerBound;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -43,10 +45,10 @@ Shader "Custom/BrightnessVariation"
         // put more per-instance properties here
         UNITY_INSTANCING_BUFFER_END(Props)
 
-        float nrand1(float2 uv)
+        float nrand1(float3 uv)
         {
             // return frac(uv.x * uv.y);
-            return frac(sin(dot(uv, float2(12, 78))));
+            return frac(sin(dot(uv, float3(12, 78, 39))));
             return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
         }
 
@@ -73,7 +75,9 @@ Shader "Custom/BrightnessVariation"
             float x = normal.x;
             float y = normal.y;
             float z = normal.z;
-            o.Albedo = _Color * float3(nrand1(float2(x, y)), nrand1(float2(x, z)), nrand1(float2(y, z)));
+            float brightnessMultiplier = nrand1(normal) * (1 - _VariationLowerBound) + _VariationLowerBound;
+            o.Albedo = _Color * brightnessMultiplier;
+            // o.Albedo = o.Albedo * 0.3 + 0.7;
 
             // o.Albedo = IN.color;
             // Metallic and smoothness come from slider variables

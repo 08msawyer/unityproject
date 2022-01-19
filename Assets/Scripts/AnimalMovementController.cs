@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AnimalController : MonoBehaviour
+public class AnimalMovementController : MonoBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
@@ -77,13 +77,6 @@ public class AnimalController : MonoBehaviour
         }
 
         _rigidbody.velocity = velocity;
-
-        
-        // if (transform.position.y > _maxHeight)
-        // {
-        //     Debug.Log(transform.position.y);
-        //     _maxHeight = transform.position.y;
-        // }
     }
 
     private bool IsGrounded()
@@ -91,29 +84,7 @@ public class AnimalController : MonoBehaviour
         var nearGround = Physics.Raycast(transform.position, Vector3.down, out var hit, _bottomBound * landingMultiplier);
         var grounded = nearGround && hit.distance <= _bottomBound + 0.0001;
         _animator.SetBool(Landing, nearGround);
-        // if (!grounded)
-        // {
-        //     var animationState = _animator.GetCurrentAnimatorStateInfo(0);
-        //     var a = 4.905f;
-        //     var b = -_rigidbody.velocity.y;
-        //     var c = -hit.distance + _bottomBound;
-        //     var t = (-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
-        //     var timeLeft = animationState.length / _animator.GetFloat(JumpAnimationSpeed) *
-        //                    (animationState.normalizedTime % 1);
-        //
-        //     var speed = timeLeft / (float) t;
-        //     if (speed > 0)
-        //     {
-        //         _animator.SetFloat(JumpAnimationSpeed, _jumpAnimationSpeed = speed);
-        //     }
-        // }
-        // else
-        // {
-        //     _animator.SetFloat(JumpAnimationSpeed, _jumpAnimationSpeed = 1f);
-        // }
-
+        
         return grounded;
     }
-
-    // private float _maxHeight;
 }
