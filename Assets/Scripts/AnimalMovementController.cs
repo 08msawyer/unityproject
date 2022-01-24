@@ -61,7 +61,6 @@ public class AnimalMovementController : MonoBehaviour
             right.Normalize();
             
             var desiredMoveDirection = (forward * vertical + right * horizontal).normalized;
-            // transform.rotation = Quaternion.LookRotation(forward);
             transform.forward = desiredMoveDirection;
 
             var desiredVelocity = desiredMoveDirection * playerSpeed;
