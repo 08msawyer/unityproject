@@ -9,7 +9,7 @@ public class AnimalFightingController : MonoBehaviour
     
     private Animator _animator;
     private float _forwardBound;
-    private CountdownManager _countdownManager;
+    private readonly CountdownManager _countdownManager = new();
 
     internal AnimalFightingController CurrentTarget;
 
