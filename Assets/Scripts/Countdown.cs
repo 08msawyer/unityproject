@@ -2,8 +2,14 @@
 
 public record Countdown
 {
-    private Action _onComplete;
+    private readonly Action _onComplete;
     private float _timeLeft;
+
+    public Countdown(float timeLeft, Action onComplete)
+    {
+        _timeLeft = timeLeft;
+        _onComplete = onComplete;
+    }
 
     public void ElapseTime(float timeDelta)
     {

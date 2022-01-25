@@ -26,6 +26,7 @@ public class AnimalFightingController : MonoBehaviour
     private void Update()
     {
         if (!respondToInput) return;
+        _countdownManager.ElapseTime(Time.deltaTime);
         
         if (Input.GetMouseButtonDown(0))
         {
