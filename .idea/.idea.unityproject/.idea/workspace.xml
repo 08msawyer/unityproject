@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5971dd-31b7-4c0b-8c17-76e185009565" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/foxandworld.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/foxandworld.unity.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +24,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Callum/RiderProjects/unityproject/Assets/Scenes/FoxCharacterDemo.unity" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="24BhgCv5teVSAmrM9MSnNNvvJAM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -74,6 +74,7 @@
       <workItem from="1643110025886" duration="559000" />
       <workItem from="1643193184651" duration="898000" />
       <workItem from="1643196193830" duration="737000" />
+      <workItem from="1643385286554" duration="267000" />
     </task>
     <task id="LOCAL-00001" summary="Shading of new map">
       <created>1643196638466</created>
