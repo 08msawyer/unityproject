@@ -21,3 +21,5 @@ Bell_flower by Zsky [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via P
 Flower by Poly by Google [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/eydI4__jXpi)
 
 flower by Andrea Zvinakis [CC-BY] (https://creativecommons.org/licenses/by/3.0/) via Poly Pizza (https://poly.pizza/m/9rbA-HmOnZs)
+
+Earthworm by Poly by Google [CC-BY], via Poly Pizza
