@@ -1,11 +1,13 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class AnimalMovementController : MonoBehaviour
+public class AnimalMovementController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
     private static readonly int Landing = Animator.StringToHash("Landing");
-    
+
+    private NetworkVariable<Vector3> _position;
     private Vector3 _playerVelocity;
     private float _bottomBound;
     private Rigidbody _rigidbody;
@@ -26,6 +28,15 @@ public class AnimalMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (IsOwner)
+        {
+            _position.Value = transform.position;
+        }
+        else
+        {
+            transform.position = _position.Value;
+        }
+        
         if (Input.GetButtonDown("Jump"))
         {
             _jumping = true;
