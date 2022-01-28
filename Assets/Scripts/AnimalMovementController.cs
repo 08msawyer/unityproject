@@ -24,6 +24,7 @@ public class AnimalMovementController : NetworkBehaviour
         _bottomBound = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        camera.gameObject.SetActive(IsOwner);
     }
 
     private void Update()
