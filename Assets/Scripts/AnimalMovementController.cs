@@ -9,24 +9,24 @@ public class AnimalMovementController : NetworkBehaviour
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
     private static readonly int Landing = Animator.StringToHash("Landing");
-    
+
+    private Camera _camera;
     private Vector3 _playerVelocity;
     private float _bottomBound;
     private Rigidbody _rigidbody;
     private Animator _animator;
     private bool _jumping;
-    
+
     public float playerSpeed = 3.6f;
     public float jumpHeight = 5f;
-    public new Camera camera;
     public float landingMultiplier = 3f;
 
     private void Start()
     {
+        _camera = Camera.main;
         _bottomBound = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        camera.gameObject.SetActive(IsLocalPlayer);
         SpawnAtRandomPosition();
     }
 
@@ -74,7 +74,7 @@ public class AnimalMovementController : NetworkBehaviour
         
         if (horizontal != 0 || vertical != 0)
         {
-            var cameraTransform = camera.transform;
+            var cameraTransform = _camera.transform;
             var forward = cameraTransform.forward;
             var right = cameraTransform.right;
             
