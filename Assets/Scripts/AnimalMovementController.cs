@@ -1,13 +1,15 @@
+using System;
+using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AnimalMovementController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
     private static readonly int Landing = Animator.StringToHash("Landing");
-
-    private NetworkVariable<Vector3> _position;
+    
     private Vector3 _playerVelocity;
     private float _bottomBound;
     private Rigidbody _rigidbody;
@@ -24,21 +26,29 @@ public class AnimalMovementController : NetworkBehaviour
         _bottomBound = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
-        camera.gameObject.SetActive(IsOwner);
+        camera.gameObject.SetActive(IsLocalPlayer);
+        SpawnAtRandomPosition();
+    }
+
+    private void SpawnAtRandomPosition()
+    {
+        var worldBounds = GameObject.FindWithTag("World").GetComponentInChildren<Collider>().bounds;
+        var x = Random.Range(worldBounds.min.x, worldBounds.max.x);
+        var z = Random.Range(worldBounds.min.z, worldBounds.max.z);
+        var position = new Vector3(x, worldBounds.max.y, z);
+        
+        var raycastResult = Physics.Raycast(position, Vector3.down, out var hit);
+        if (!raycastResult)
+        {
+            throw new Exception($"Could not find a spawn for {this}!");
+        }
+        
+        transform.position = hit.point + _bottomBound * Vector3.up;
     }
 
     private void Update()
     {
-        if (IsOwner)
-        {
-            _position.Value = transform.position;
-        }
-        else
-        {
-            transform.position = _position.Value;
-        }
-        
-        if (Input.GetButtonDown("Jump"))
+        if (IsOwner && Input.GetButtonDown("Jump"))
         {
             _jumping = true;
         }
@@ -46,6 +56,7 @@ public class AnimalMovementController : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner) return;
         Cursor.lockState = CursorLockMode.Locked;
         var velocity = _rigidbody.velocity;
         var horizontal = Input.GetAxis("Horizontal");

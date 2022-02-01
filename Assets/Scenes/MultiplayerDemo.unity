@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 1430247893}
   m_Layer: 0
   m_Name: forestFinal
-  m_TagString: Untagged
+  m_TagString: World
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
