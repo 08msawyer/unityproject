@@ -57,6 +57,7 @@ public class AnimalMovementController : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!IsOwner) return;
+        
         Cursor.lockState = CursorLockMode.Locked;
         var velocity = _rigidbody.velocity;
         var horizontal = Input.GetAxis("Horizontal");
@@ -67,7 +68,8 @@ public class AnimalMovementController : NetworkBehaviour
         if (groundedPlayer && _jumping)
         {
             velocity.y += jumpHeight;
-            _animator.SetTrigger(Jumping);
+            RequestAnimatorSetTriggerServerRpc(Jumping);
+            _animator.SetFloat("JumpSpeed", 0.11f);
         }
         _jumping = false;
 
@@ -90,12 +92,12 @@ public class AnimalMovementController : NetworkBehaviour
             desiredVelocity.y = velocity.y;
             
             velocity = desiredVelocity;
-            
-            _animator.SetBool(Walking, true);
+
+            RequestAnimatorSetBoolServerRpc(Walking, true);
         }
         else
         {
-            _animator.SetBool(Walking, false);
+            RequestAnimatorSetBoolServerRpc(Walking, false);
         }
 
         _rigidbody.velocity = velocity;
@@ -105,8 +107,30 @@ public class AnimalMovementController : NetworkBehaviour
     {
         var nearGround = Physics.Raycast(transform.position, Vector3.down, out var hit, _bottomBound * landingMultiplier);
         var grounded = nearGround && hit.distance <= _bottomBound + 0.0001;
-        _animator.SetBool(Landing, nearGround);
         
+        if (nearGround && _rigidbody.velocity.y < -0.001f)
+        {
+            RequestAnimatorSetTriggerServerRpc(Landing);
+        }
+
         return grounded;
+    }
+    
+    [ServerRpc]
+    private void RequestAnimatorSetBoolServerRpc(int id, bool value)
+    {
+        _animator.SetBool(id, value);
+    }
+    
+    [ServerRpc]
+    private void RequestAnimatorSetTriggerServerRpc(int id)
+    {
+        HandleAnimatorSetTriggerClientRpc(id);
+    }
+    
+    [ClientRpc]
+    private void HandleAnimatorSetTriggerClientRpc(int id)
+    {
+        _animator.SetTrigger(id);
     }
 }

@@ -535,7 +535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034896368772071945}
-  m_LocalRotation: {x: 0.00055057113, y: -0.54191434, z: 0.0003550101, w: 0.8404335}
+  m_LocalRotation: {x: 0.00055056956, y: -0.5419143, z: 0.0003550091, w: 0.84043354}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 1.6944444, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1037,7 +1037,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3173909033638699274}
-  m_LocalRotation: {x: -0.014696211, y: -0.54183155, z: -0.009476165, w: 0.8403052}
+  m_LocalRotation: {x: -0.014696213, y: -0.54183155, z: -0.009476167, w: 0.84030527}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 1.6944444, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1178,7 +1178,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3590658683105394021}
-  m_LocalRotation: {x: 0.015837533, y: -0.5418182, z: 0.0102120945, w: 0.84028447}
+  m_LocalRotation: {x: 0.015837533, y: -0.54181814, z: 0.01021209, w: 0.8402844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 1.6944444, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2922,7 +2922,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1, y: 1}
+    m_SensorSize: {x: 1.6944444, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3090,6 +3090,7 @@ GameObject:
   - component: {fileID: 4267426493188172151}
   - component: {fileID: 1415817893710762884}
   - component: {fileID: 3817137507000758205}
+  - component: {fileID: 2025401330822085545}
   m_Layer: 0
   m_Name: FoxCharacter
   m_TagString: Untagged
@@ -3195,7 +3196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 3.6
   jumpHeight: 5
-  landingMultiplier: 3
+  landingMultiplier: 2
 --- !u!114 &53398543245921652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3258,7 +3259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783091311724052530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
   m_Name: 
@@ -3266,6 +3267,21 @@ MonoBehaviour:
   m_Animator: {fileID: 2603941798360791283}
   m_ParameterSendBits: 63
   m_SendRate: 0.1
+--- !u!114 &2025401330822085545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783091311724052530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999cc9cdfb7fb4d41a31dc91734ac410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useThreshold: 0
+  rigidBody: 1
+  teleportOriginType: 1
 --- !u!1 &8096428530230243997
 GameObject:
   m_ObjectHideFlags: 0
