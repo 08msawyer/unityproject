@@ -2,7 +2,7 @@
 
 public class CountdownManager
 {
-    private List<Countdown> _countdowns;
+    private readonly List<Countdown> _countdowns = new();
 
     public void AddCountdown(Countdown countdown)
     {

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - lb_bird
+  - World
   layers:
   - Default
   - TransparentFX

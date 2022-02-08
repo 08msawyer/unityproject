@@ -1,32 +1,54 @@
+using System;
+using Cinemachine;
+using Unity.Netcode;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class AnimalMovementController : MonoBehaviour
+public class AnimalMovementController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
     private static readonly int Landing = Animator.StringToHash("Landing");
-    
+
+    private Camera _camera;
     private Vector3 _playerVelocity;
     private float _bottomBound;
     private Rigidbody _rigidbody;
     private Animator _animator;
     private bool _jumping;
-    
+
     public float playerSpeed = 3.6f;
     public float jumpHeight = 5f;
-    public new Camera camera;
     public float landingMultiplier = 3f;
 
     private void Start()
     {
+        _camera = Camera.main;
         _bottomBound = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        SpawnAtRandomPosition();
+    }
+
+    private void SpawnAtRandomPosition()
+    {
+        var worldBounds = GameObject.FindWithTag("World").GetComponentInChildren<Collider>().bounds;
+        var x = Random.Range(worldBounds.min.x, worldBounds.max.x);
+        var z = Random.Range(worldBounds.min.z, worldBounds.max.z);
+        var position = new Vector3(x, worldBounds.max.y, z);
+        
+        var raycastResult = Physics.Raycast(position, Vector3.down, out var hit);
+        if (!raycastResult)
+        {
+            throw new Exception($"Could not find a spawn for {this}!");
+        }
+        
+        transform.position = hit.point + _bottomBound * Vector3.up;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (IsOwner && Input.GetButtonDown("Jump"))
         {
             _jumping = true;
         }
@@ -34,6 +56,8 @@ public class AnimalMovementController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner) return;
+        
         Cursor.lockState = CursorLockMode.Locked;
         var velocity = _rigidbody.velocity;
         var horizontal = Input.GetAxis("Horizontal");
@@ -44,14 +68,15 @@ public class AnimalMovementController : MonoBehaviour
         if (groundedPlayer && _jumping)
         {
             velocity.y += jumpHeight;
-            _animator.SetTrigger(Jumping);
+            RequestAnimatorSetTriggerServerRpc(Jumping);
+            _animator.SetFloat("JumpSpeed", 0.11f);
         }
         _jumping = false;
 
         
         if (horizontal != 0 || vertical != 0)
         {
-            var cameraTransform = camera.transform;
+            var cameraTransform = _camera.transform;
             var forward = cameraTransform.forward;
             var right = cameraTransform.right;
             
@@ -67,12 +92,12 @@ public class AnimalMovementController : MonoBehaviour
             desiredVelocity.y = velocity.y;
             
             velocity = desiredVelocity;
-            
-            _animator.SetBool(Walking, true);
+
+            RequestAnimatorSetBoolServerRpc(Walking, true);
         }
         else
         {
-            _animator.SetBool(Walking, false);
+            RequestAnimatorSetBoolServerRpc(Walking, false);
         }
 
         _rigidbody.velocity = velocity;
@@ -82,8 +107,30 @@ public class AnimalMovementController : MonoBehaviour
     {
         var nearGround = Physics.Raycast(transform.position, Vector3.down, out var hit, _bottomBound * landingMultiplier);
         var grounded = nearGround && hit.distance <= _bottomBound + 0.0001;
-        _animator.SetBool(Landing, nearGround);
         
+        if (nearGround && _rigidbody.velocity.y < -0.001f)
+        {
+            RequestAnimatorSetTriggerServerRpc(Landing);
+        }
+
         return grounded;
+    }
+    
+    [ServerRpc]
+    private void RequestAnimatorSetBoolServerRpc(int id, bool value)
+    {
+        _animator.SetBool(id, value);
+    }
+    
+    [ServerRpc]
+    private void RequestAnimatorSetTriggerServerRpc(int id)
+    {
+        HandleAnimatorSetTriggerClientRpc(id);
+    }
+    
+    [ClientRpc]
+    private void HandleAnimatorSetTriggerClientRpc(int id)
+    {
+        _animator.SetTrigger(id);
     }
 }
