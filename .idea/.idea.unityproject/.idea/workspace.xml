@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5971dd-31b7-4c0b-8c17-76e185009565" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/foxandworld.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/foxandworld.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeyAreaSpawner/Trees1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeyAreaSpawner/Trees1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/BrushSettings-Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/BrushSettings-Default.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/Trees.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/Trees.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Pure Poly/Free Low Poly Nature Pack/Materials/PP_Standard_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pure Poly/Free Low Poly Nature Pack/Materials/PP_Standard_Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/foxandworld.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/foxandworld.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimpleNaturePack/Materials/SimpleNaturePack_Texture_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimpleNaturePack/Materials/SimpleNaturePack_Texture_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +31,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Shaders/Grass.shader" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="24BhgCv5teVSAmrM9MSnNNvvJAM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -75,6 +87,8 @@
       <workItem from="1643193184651" duration="898000" />
       <workItem from="1643196193830" duration="737000" />
       <workItem from="1643385286554" duration="267000" />
+      <workItem from="1643623930028" duration="116000" />
+      <workItem from="1643989616277" duration="672000" />
     </task>
     <task id="LOCAL-00001" summary="Shading of new map">
       <created>1643196638466</created>
@@ -83,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643196638466</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pushing">
+      <created>1643623946964</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1643623946964</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Shading of new map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shading of new map" />
+    <MESSAGE value="pushing" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushing" />
   </component>
 </project>
