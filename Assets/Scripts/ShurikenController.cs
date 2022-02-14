@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ShurikenController : NetworkBehaviour
+public class ShurikenController : MonoBehaviour
 {
     private Vector3 _startDirection;
 
@@ -15,37 +15,23 @@ public class ShurikenController : NetworkBehaviour
 
     private void Start()
     {
-        if (!IsServer) return;
-        
-        StartCoroutine(DespawnAfterTime());
+        Destroy(gameObject, 5f);
         _startDirection = transform.forward;
-    }
-
-    private IEnumerator DespawnAfterTime()
-    {
-        yield return new WaitForSeconds(5);
-        NetworkObject.Despawn();
     }
 
     private void Update()
     {
-        if (!IsServer) return;
-
         var localTransform = transform;
         localTransform.position += _startDirection * (speed * Time.deltaTime);
-        var rotation = localTransform.rotation;
-        rotation.eulerAngles += Vector3.up * (rotationSpeed * Time.deltaTime);
-        localTransform.rotation = rotation;
+        localTransform.Rotate(localTransform.up, rotationSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (!IsServer) return;
-
         var animal = other.gameObject.GetComponent<AnimalFightingController>();
         if (animal == Owner) return;
 
-        NetworkObject.Despawn();
+        Destroy(gameObject);
         if (animal != null)
         {
             animal.DamageServerRpc(Owner.damage);
