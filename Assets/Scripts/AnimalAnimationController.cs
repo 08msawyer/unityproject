@@ -18,7 +18,8 @@ public class AnimalAnimationController : NetworkBehaviour
     
     public void SetTrigger(int id)
     {
-        RequestAnimatorSetTriggerServerRpc(id);
+        if (IsServer) HandleAnimatorSetTriggerClientRpc(id);
+        else RequestAnimatorSetTriggerServerRpc(id);
     }
     
     [ServerRpc]

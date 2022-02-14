@@ -41,14 +41,10 @@ public class AnimalFightingController : NetworkBehaviour
     private void AttackServerRpc(Vector3 pos, Quaternion rot)
     {
         _animator.SetTrigger(Attacking);
-        SpawnShurikenClientRpc(pos, rot);
-    }
-
-    [ClientRpc]
-    private void SpawnShurikenClientRpc(Vector3 pos, Quaternion rot)
-    {
         var shuriken = Instantiate(this.shuriken, pos + rot * Vector3.forward * 2, rot);
-        shuriken.GetComponent<ShurikenController>().Owner = this;
+        shuriken.GetComponent<ShurikenController>().Damage.Value = damage;
+        var networkObject = shuriken.GetComponent<NetworkObject>();
+        networkObject.SpawnWithOwnership(OwnerClientId);
     }
 
     [ServerRpc(RequireOwnership = false)]
