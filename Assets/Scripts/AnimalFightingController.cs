@@ -47,7 +47,7 @@ public class AnimalFightingController : NetworkBehaviour
         networkObject.SpawnWithOwnership(OwnerClientId);
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc]
     public void DamageServerRpc(float damageDealt)
     {
         _animator.SetTrigger(Damaged);
