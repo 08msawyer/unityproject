@@ -7,6 +7,7 @@ using UnityEngine;
 public class ShurikenController : MonoBehaviour
 {
     private Vector3 _startDirection;
+    private Vector3 _startUp;
 
     internal AnimalFightingController Owner;
 
@@ -17,13 +18,14 @@ public class ShurikenController : MonoBehaviour
     {
         Destroy(gameObject, 5f);
         _startDirection = transform.forward;
+        _startUp = transform.up;
     }
 
     private void Update()
     {
         var localTransform = transform;
         localTransform.position += _startDirection * (speed * Time.deltaTime);
-        localTransform.Rotate(localTransform.up, rotationSpeed * Time.deltaTime);
+        localTransform.RotateAroundLocal(_startUp, rotationSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision other)
