@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -71,6 +72,11 @@ public class AnimalFightingController : NetworkBehaviour
 
     [ServerRpc]
     public void DamageServerRpc(float damageDealt)
+    {
+        DealDamage(damageDealt);
+    }
+
+    public void DealDamage(float damageDealt)
     {
         _animator.SetTrigger(Damaged);
         _health.Value -= damageDealt;

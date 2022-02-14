@@ -6,6 +6,7 @@ TagManager:
   tags:
   - World
   - HUD
+  - Zone
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Portals
   - Water
   - UI
-  - 
+  - Zone
   - 
   - 
   - 
