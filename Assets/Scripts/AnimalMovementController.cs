@@ -102,6 +102,17 @@ public class AnimalMovementController : NetworkBehaviour
         _rigidbody.velocity = velocity;
     }
 
+    public void LookForwardRelativeToCamera()
+    {
+        var cameraTransform = _camera.transform;
+        var forward = cameraTransform.forward;
+
+        forward.y = 0f;
+        forward.Normalize();
+
+        transform.forward = forward;
+    }
+
     private bool IsGrounded()
     {
         var nearGround = Physics.Raycast(transform.position, Vector3.down, out var hit, _bottomBound * landingMultiplier);
