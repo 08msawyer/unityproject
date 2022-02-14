@@ -535,7 +535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034896368772071945}
-  m_LocalRotation: {x: 0.00055056956, y: -0.5419143, z: 0.0003550091, w: 0.84043354}
+  m_LocalRotation: {x: 0.00055057136, y: -0.54191434, z: 0.00035501024, w: 0.8404335}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6944444, y: 1}
+    m_SensorSize: {x: 1.7104701, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6944444, y: 1}
+    m_SensorSize: {x: 1.7104701, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1178,7 +1178,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3590658683105394021}
-  m_LocalRotation: {x: 0.015837533, y: -0.54181814, z: 0.01021209, w: 0.8402844}
+  m_LocalRotation: {x: 0.015837533, y: -0.5418182, z: 0.0102120945, w: 0.84028447}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6944444, y: 1}
+    m_SensorSize: {x: 1.7104701, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2922,7 +2922,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6944444, y: 1}
+    m_SensorSize: {x: 1.7104701, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3091,6 +3091,7 @@ GameObject:
   - component: {fileID: 1415817893710762884}
   - component: {fileID: 3817137507000758205}
   - component: {fileID: 2025401330822085545}
+  - component: {fileID: 843640976224535968}
   m_Layer: 0
   m_Name: FoxCharacter
   m_TagString: Untagged
@@ -3180,8 +3181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d07ca2b5d976142afc5b15154b7f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodgeTime: 0.5
-  dodgeCooldown: 5
+  dodgeTime: 0.8
+  dodgeCooldown: 8
+  health: 100
+  damage: 10
+  shuriken: {fileID: 5339224149149059571, guid: 57ab558d5d29f524bb1f96e6d2faff6b, type: 3}
 --- !u!114 &2603941798360791284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,7 +3263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783091311724052530}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
   m_Name: 
@@ -3282,6 +3286,18 @@ MonoBehaviour:
   useThreshold: 0
   rigidBody: 1
   teleportOriginType: 1
+--- !u!114 &843640976224535968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783091311724052530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee9dbbf276904a8290aae1485357a0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8096428530230243997
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class AnimalMovementController : NetworkBehaviour
     private Vector3 _playerVelocity;
     private float _bottomBound;
     private Rigidbody _rigidbody;
-    private Animator _animator;
+    private AnimalAnimationController _animator;
     private bool _jumping;
 
     public float playerSpeed = 3.6f;
@@ -26,8 +26,8 @@ public class AnimalMovementController : NetworkBehaviour
         _camera = Camera.main;
         _bottomBound = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
-        SpawnAtRandomPosition();
+        _animator = GetComponent<AnimalAnimationController>();
+        // SpawnAtRandomPosition();
     }
 
     private void SpawnAtRandomPosition()
@@ -68,8 +68,7 @@ public class AnimalMovementController : NetworkBehaviour
         if (groundedPlayer && _jumping)
         {
             velocity.y += jumpHeight;
-            RequestAnimatorSetTriggerServerRpc(Jumping);
-            _animator.SetFloat("JumpSpeed", 0.11f);
+            _animator.SetTrigger(Jumping);
         }
         _jumping = false;
 
@@ -93,11 +92,11 @@ public class AnimalMovementController : NetworkBehaviour
             
             velocity = desiredVelocity;
 
-            RequestAnimatorSetBoolServerRpc(Walking, true);
+            _animator.SetBool(Walking, true);
         }
         else
         {
-            RequestAnimatorSetBoolServerRpc(Walking, false);
+            _animator.SetBool(Walking, false);
         }
 
         _rigidbody.velocity = velocity;
@@ -110,27 +109,9 @@ public class AnimalMovementController : NetworkBehaviour
         
         if (nearGround && _rigidbody.velocity.y < -0.001f)
         {
-            RequestAnimatorSetTriggerServerRpc(Landing);
+            _animator.SetTrigger(Landing);
         }
 
         return grounded;
-    }
-    
-    [ServerRpc]
-    private void RequestAnimatorSetBoolServerRpc(int id, bool value)
-    {
-        _animator.SetBool(id, value);
-    }
-    
-    [ServerRpc]
-    private void RequestAnimatorSetTriggerServerRpc(int id)
-    {
-        HandleAnimatorSetTriggerClientRpc(id);
-    }
-    
-    [ClientRpc]
-    private void HandleAnimatorSetTriggerClientRpc(int id)
-    {
-        _animator.SetTrigger(id);
     }
 }
