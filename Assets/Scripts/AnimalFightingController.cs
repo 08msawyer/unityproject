@@ -75,7 +75,7 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
         DamageServerRpc(damage);
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void DamageServerRpc(float damageDealt)
     {
         DealDamage(damageDealt);

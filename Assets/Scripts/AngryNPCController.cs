@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,23 +9,18 @@ public class AngryNPCController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
 
-    private readonly NetworkVariable<ulong> _tongueTargetId = new();
+    private readonly NetworkVariable<Vector3> _tongueTarget = new();
     private readonly NetworkVariable<bool> _tongueActive = new();
+    private readonly NetworkVariable<bool> _tongueExtending = new();
 
     private NavMeshAgent _agent;
     private Animator _animator;
     private LineRenderer _tongue;
     private Transform _headTransform;
     private GameObject _target;
-    private Rigidbody _targetRigidBody;
 
     private void Start()
     {
-        _tongueTargetId.OnValueChanged = delegate(ulong _, ulong newId)
-        {
-            _targetRigidBody = NetworkManager.SpawnManager.SpawnedObjects[newId].gameObject
-                .GetComponent<Rigidbody>();
-        };
         _agent = GetComponentInParent<NavMeshAgent>();
         _animator = GetComponentInParent<Animator>();
         _tongue = GetComponentInParent<LineRenderer>();
@@ -32,11 +28,32 @@ public class AngryNPCController : NetworkBehaviour
             .Find("Head").Find("Head_end");
     }
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer) StartCoroutine(TongueLoopCoroutine());
+    }
+
+    private IEnumerator TongueLoopCoroutine()
+    {
+        while (true)
+        {
+            if (_target == null) yield return null;
+            else
+            {
+                _tongueExtending.Value = false;
+                yield return new WaitForSeconds(3);
+                _tongueExtending.Value = true;
+                _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+    }
+
     public void SetTarget(NetworkObject target)
     {
         Assert.IsTrue(IsServer);
         _target = target.gameObject;
-        _tongueTargetId.Value = target.NetworkObjectId;
+        // // _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
         _tongueActive.Value = true;
     }
 
@@ -45,13 +62,15 @@ public class AngryNPCController : NetworkBehaviour
         if (!_tongueActive.Value)
         {
             _tongue.enabled = false;
+            _tongue.SetPosition(1, _tongue.GetPosition(0));
             return;
         }
 
         _tongue.enabled = true;
 
         _tongue.SetPosition(0, transform.InverseTransformPoint(_headTransform.position));
-        _tongue.SetPosition(1, transform.InverseTransformPoint(_targetRigidBody.worldCenterOfMass));
+        var target = _tongueExtending.Value ? transform.InverseTransformPoint(_tongueTarget.Value) : _tongue.GetPosition(0);
+        _tongue.SetPosition(1, Vector3.MoveTowards(_tongue.GetPosition(1), target, Time.deltaTime * 250));
     }
 
     private void FixedUpdate()
