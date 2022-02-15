@@ -39,12 +39,13 @@ public class ShurikenController : NetworkBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        var animal = other.gameObject.GetComponent<AnimalFightingController>();
+        var networkObject = other.gameObject.GetComponent<NetworkObject>();
+        var animal = other.gameObject.GetComponent<IDamageable>();
 
-        if (animal != null)
+        if (networkObject != null && animal != null)
         {
-            if (animal.OwnerClientId == OwnerClientId) return;
-            animal.DamageServerRpc(Damage.Value);
+            if (animal is AnimalFightingController && networkObject.OwnerClientId == OwnerClientId) return;
+            animal.Damage(Damage.Value);
         }
         
         DespawnServerRpc();

@@ -9,6 +9,7 @@ public class AngryNPCController : NetworkBehaviour
     
     private NavMeshAgent _agent;
     private Animator _animator;
+    private GameObject target;
 
     public override void OnNetworkSpawn()
     {
@@ -20,16 +21,33 @@ public class AngryNPCController : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!IsServer) return;
-        _animator.SetBool(Walking, _agent.desiredVelocity != Vector3.zero);
+        _animator.SetBool(Walking, target != null);
+        if (target != null)
+        {
+            _agent.isStopped = false;
+            _agent.SetDestination(target.transform.position);
+        }
+        else
+        {
+            _agent.isStopped = true;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!IsServer) return;
+        if (!IsServer || target != null) return;
 
         if (other.gameObject.GetComponent<AnimalFightingController>() != null)
         {
-            _agent.SetDestination(other.gameObject.transform.position);
+            target = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == target)
+        {
+            target = null;
         }
     }
 }

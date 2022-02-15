@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 5348410850974724121}
   - component: {fileID: 3909283852854830347}
   - component: {fileID: 5065000659117278753}
+  - component: {fileID: 6143808555861609476}
   m_Layer: 0
   m_Name: FrogNPC
   m_TagString: Untagged
@@ -596,6 +597,18 @@ MonoBehaviour:
   m_Animator: {fileID: 3909283852854830347}
   m_ParameterSendBits: 1
   m_SendRate: 0.1
+--- !u!114 &6143808555861609476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3098542363118885171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cbba418d1556a43abfe60f18b5b218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3239044061970703032
 GameObject:
   m_ObjectHideFlags: 0

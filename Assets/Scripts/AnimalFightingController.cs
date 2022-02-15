@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimalFightingController : NetworkBehaviour
+public class AnimalFightingController : NetworkBehaviour, IDamageable
 {
     private static readonly int Attacking = Animator.StringToHash("Attacking");
     private static readonly int Damaged = Animator.StringToHash("Damaged");
@@ -70,8 +70,13 @@ public class AnimalFightingController : NetworkBehaviour
         networkObject.SpawnWithOwnership(OwnerClientId);
     }
 
+    public void Damage(float damage)
+    {
+        DamageServerRpc(damage);
+    }
+
     [ServerRpc]
-    public void DamageServerRpc(float damageDealt)
+    private void DamageServerRpc(float damageDealt)
     {
         DealDamage(damageDealt);
     }
