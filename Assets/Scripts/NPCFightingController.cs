@@ -1,12 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class NPCFightingController : NetworkBehaviour, IDamageable
 {
-    public void Damage(float damage)
+    private AngryNPCController _angryNpcController;
+    
+    public float health = 30f;
+
+    public override void OnNetworkSpawn()
     {
-        NetworkObject.Despawn();
+        if (!IsServer) return;
+        _angryNpcController = GetComponentInChildren<AngryNPCController>();
+    }
+
+    public void Damage(ulong sourceClientId, float damage)
+    {
+        if (IsServer) HandleDamage(sourceClientId, damage);
+        else HandleDamageServerRpc(sourceClientId, damage);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void HandleDamageServerRpc(ulong sourceClientId, float damage)
+    {
+        HandleDamage(sourceClientId, damage);
+    }
+
+    private void HandleDamage(ulong sourceClientId, float damage)
+    {
+        Assert.IsTrue(IsServer);
+        var source = NetworkManager.ConnectedClients[sourceClientId].PlayerObject;
+        _angryNpcController.SetTarget(source);
+        
+        health -= damage;
+        if (health <= 0)
+        {
+            NetworkObject.Despawn();
+        }
     }
 }

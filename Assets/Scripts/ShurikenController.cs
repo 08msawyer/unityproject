@@ -45,7 +45,7 @@ public class ShurikenController : NetworkBehaviour
         if (networkObject != null && animal != null)
         {
             if (animal is AnimalFightingController && networkObject.OwnerClientId == OwnerClientId) return;
-            animal.Damage(Damage.Value);
+            animal.Damage(OwnerClientId, Damage.Value);
         }
         
         DespawnServerRpc();

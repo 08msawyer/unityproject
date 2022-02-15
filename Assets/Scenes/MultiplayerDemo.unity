@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8314067644001955568, guid: c79a5e6f42ed5e547a2c8b2cbb803524, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9912.8
       objectReference: {fileID: 0}
     - target: {fileID: 8314067644001955568, guid: c79a5e6f42ed5e547a2c8b2cbb803524, type: 3}
       propertyPath: m_LocalPosition.y
@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8314067644001955568, guid: c79a5e6f42ed5e547a2c8b2cbb803524, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 287.7
       objectReference: {fileID: 0}
     - target: {fileID: 8314067644001955568, guid: c79a5e6f42ed5e547a2c8b2cbb803524, type: 3}
       propertyPath: m_LocalRotation.w
@@ -845,6 +845,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_UseWorldSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b04c3c5be7222324ca2d1b07c6d3af5c, type: 2}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Positions.Array.data[0].z
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Parameters.generateLightingData
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985922472181653918, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.03246295
+      objectReference: {fileID: 0}
     - target: {fileID: 3098542363118885171, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
       propertyPath: m_Name
       value: FrogNPC

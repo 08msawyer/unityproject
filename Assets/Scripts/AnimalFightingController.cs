@@ -70,7 +70,7 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
         networkObject.SpawnWithOwnership(OwnerClientId);
     }
 
-    public void Damage(float damage)
+    public void Damage(ulong sourceClientId, float damage)
     {
         DamageServerRpc(damage);
     }

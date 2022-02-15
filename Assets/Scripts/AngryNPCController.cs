@@ -2,30 +2,66 @@ using System;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Assertions;
 
 public class AngryNPCController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
-    
+
+    private readonly NetworkVariable<ulong> _tongueTargetId = new();
+    private readonly NetworkVariable<bool> _tongueActive = new();
+
     private NavMeshAgent _agent;
     private Animator _animator;
-    private GameObject target;
+    private LineRenderer _tongue;
+    private Transform _headTransform;
+    private GameObject _target;
+    private Rigidbody _targetRigidBody;
 
-    public override void OnNetworkSpawn()
+    private void Start()
     {
-        if (!IsServer) return;
+        _tongueTargetId.OnValueChanged = delegate(ulong _, ulong newId)
+        {
+            _targetRigidBody = NetworkManager.SpawnManager.SpawnedObjects[newId].gameObject
+                .GetComponent<Rigidbody>();
+        };
         _agent = GetComponentInParent<NavMeshAgent>();
         _animator = GetComponentInParent<Animator>();
+        _tongue = GetComponentInParent<LineRenderer>();
+        _headTransform = transform.parent.Find("FrogArmature").Find("root").Find("Body").Find("Shoulders").Find("Neck")
+            .Find("Head").Find("Head_end");
+    }
+
+    public void SetTarget(NetworkObject target)
+    {
+        Assert.IsTrue(IsServer);
+        _target = target.gameObject;
+        _tongueTargetId.Value = target.NetworkObjectId;
+        _tongueActive.Value = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (!_tongueActive.Value)
+        {
+            _tongue.enabled = false;
+            return;
+        }
+
+        _tongue.enabled = true;
+
+        _tongue.SetPosition(0, transform.InverseTransformPoint(_headTransform.position));
+        _tongue.SetPosition(1, transform.InverseTransformPoint(_targetRigidBody.worldCenterOfMass));
     }
 
     private void FixedUpdate()
     {
         if (!IsServer) return;
-        _animator.SetBool(Walking, target != null);
-        if (target != null)
+        _animator.SetBool(Walking, _target != null);
+        if (_target != null)
         {
             _agent.isStopped = false;
-            _agent.SetDestination(target.transform.position);
+            _agent.SetDestination(_target.transform.position);
         }
         else
         {
@@ -35,19 +71,22 @@ public class AngryNPCController : NetworkBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!IsServer || target != null) return;
+        if (!IsServer || _target != null) return;
 
         if (other.gameObject.GetComponent<AnimalFightingController>() != null)
         {
-            target = other.gameObject;
+            SetTarget(other.GetComponent<NetworkObject>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == target)
+        if (!IsServer) return;
+        
+        if (other.gameObject == _target)
         {
-            target = null;
+            _target = null;
+            _tongueActive.Value = false;
         }
     }
 }
