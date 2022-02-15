@@ -16,6 +16,7 @@ public class AngryNPCController : NetworkBehaviour
     private NavMeshAgent _agent;
     private Animator _animator;
     private LineRenderer _tongue;
+    private GameObject _tongueHitbox;
     private Transform _headTransform;
     private GameObject _target;
 
@@ -26,6 +27,7 @@ public class AngryNPCController : NetworkBehaviour
         _tongue = GetComponentInParent<LineRenderer>();
         _headTransform = transform.parent.Find("FrogArmature").Find("root").Find("Body").Find("Shoulders").Find("Neck")
             .Find("Head").Find("Head_end");
+        _tongueHitbox = transform.parent.GetComponentInChildren<TongueDamageController>().gameObject;
     }
 
     public override void OnNetworkSpawn()
@@ -38,10 +40,13 @@ public class AngryNPCController : NetworkBehaviour
         while (true)
         {
             if (_target == null) yield return null;
-            else
+            else if (_tongueExtending.Value)
             {
                 _tongueExtending.Value = false;
                 yield return new WaitForSeconds(3);
+            }
+            else
+            {
                 _tongueExtending.Value = true;
                 _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
                 yield return new WaitForSeconds(0.5f);
@@ -55,6 +60,7 @@ public class AngryNPCController : NetworkBehaviour
         _target = target.gameObject;
         // // _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
         _tongueActive.Value = true;
+        _tongueExtending.Value = true;
     }
 
     private void LateUpdate()
@@ -70,7 +76,9 @@ public class AngryNPCController : NetworkBehaviour
 
         _tongue.SetPosition(0, transform.InverseTransformPoint(_headTransform.position));
         var target = _tongueExtending.Value ? transform.InverseTransformPoint(_tongueTarget.Value) : _tongue.GetPosition(0);
-        _tongue.SetPosition(1, Vector3.MoveTowards(_tongue.GetPosition(1), target, Time.deltaTime * 250));
+        var newTongueEnd = Vector3.MoveTowards(_tongue.GetPosition(1), target, Time.deltaTime * 250);
+        _tongue.SetPosition(1, newTongueEnd);
+        _tongueHitbox.transform.position = transform.TransformPoint(newTongueEnd);
     }
 
     private void FixedUpdate()

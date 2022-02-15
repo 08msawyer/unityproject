@@ -454,6 +454,7 @@ Transform:
   - {fileID: 1944092694840655822}
   - {fileID: 2749760113590654286}
   - {fileID: 7745008772254010828}
+  - {fileID: 681269270987556560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -866,6 +867,64 @@ Transform:
   m_Father: {fileID: 4851788908333813844}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4232975606843761392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681269270987556560}
+  - component: {fileID: 3631786468874710976}
+  - component: {fileID: 5641038564637682513}
+  m_Layer: 0
+  m_Name: TongueHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &681269270987556560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232975606843761392}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.95, z: 30.327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7665903232113554211}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3631786468874710976
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232975606843761392}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.12
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5641038564637682513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232975606843761392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe755dd2375c06f428e486e9a72a9480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4876905517674291837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f3ed8b546804c49b9854e05d53dffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tongueStartOffset: {x: 0, y: 0, z: 0}
 --- !u!135 &8680730654928013974
 SphereCollider:
   m_ObjectHideFlags: 0
