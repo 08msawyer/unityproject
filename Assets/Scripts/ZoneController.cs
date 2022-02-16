@@ -19,6 +19,13 @@ public class ZoneController : NetworkBehaviour
         if (animal != null)
         {
             animal.DealDamage(50);
+            return;
+        }
+
+        var npc = other.gameObject.GetComponent<NPCFightingController>();
+        if (npc != null)
+        {
+            npc.TakeDamage(10000);
         }
     }
 }

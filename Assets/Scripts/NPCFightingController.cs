@@ -32,7 +32,13 @@ public class NPCFightingController : NetworkBehaviour, IDamageable
         var source = NetworkManager.ConnectedClients[sourceClientId].PlayerObject;
         _angryNpcController.SetTarget(source);
         
-        health -= damage;
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        Assert.IsTrue(IsServer);
+        health -= amount;
         if (health <= 0)
         {
             NetworkObject.Despawn();
