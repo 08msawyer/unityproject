@@ -6,6 +6,7 @@ TagManager:
   tags:
   - lb_bird
   - World
+  - FoodMushroom
   layers:
   - Default
   - TransparentFX
