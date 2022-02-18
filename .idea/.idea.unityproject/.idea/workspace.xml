@@ -2,18 +2,128 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d5971dd-31b7-4c0b-8c17-76e185009565" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/GrassGeometry.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Shaders/GrassGeometry.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tempcredits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/shelf/Uncommitted_changes_before_Update_at_26_01_2022_11_28__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unityproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HeyAreaSpawner/Trees1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HeyAreaSpawner/Trees1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/BrushSettings-Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/BrushSettings-Default.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/Trees.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Brush Settings/Trees.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Polybrush Data/Prefab Palette/PrefabPalette-Default.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pure Poly/Free Low Poly Nature Pack/Materials/PP_Standard_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Pure Poly/Free Low Poly Nature Pack/Materials/PP_Standard_Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Grass.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/BlueGrass 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/BlueGrass 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GrassHider.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GrassHider.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenGrass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenGrass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenGrassLowDensity.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenGrassLowDensity.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenTGrass 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenTGrass 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenTGrass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/GreenTGrass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/Simple.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/Simple.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/Sky.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/Sky.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/TextureGrass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/TextureGrass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare 2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare 2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/YellowGrassSquare.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/f3.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/grassparticle.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/Materials/grassparticle.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blacksquare.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blacksquare.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blacksquare_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blacksquare_round.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blades-of-grass-clipart-transparent-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/blades-of-grass-clipart-transparent-5.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/brush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/brush.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/brush1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/brush1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/dcatyft-3d286c66-03cc-448e-b8d8-a4f0a3a2fc26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/dcatyft-3d286c66-03cc-448e-b8d8-a4f0a3a2fc26.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/gradient.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/gradient.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenGrassTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenGrassTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenPatternedGrass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenPatternedGrass.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenYellowTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/greenYellowTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/inline_image_preview.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/inline_image_preview.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/lrzaiSR.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/lrzaiSR.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/spongebob-blur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/spongebob-blur.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/spongebob-clear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/spongebob-clear.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/yellow1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Graphics/yellow1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Particle System.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Particle System.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/GrassParticle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/GrassParticle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/GrassPatchActivator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/GrassPatchActivator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/PercentageChecker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/PercentageChecker.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/PositionPainter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/PositionPainter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/RTSetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/RTSetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/SpritePainter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/SpritePainter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/WindPositionSetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Scripts/WindPositionSetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/CustomTessellation.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/CustomTessellation.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/FlowerBreak.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/FlowerBreak.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/FlowerCS.compute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/FlowerCS.compute.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PTGrass.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PTGrass.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PTHideGrass.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PTHideGrass.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/ParticleCS.compute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/ParticleCS.compute.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PercentageShader.compute" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/PercentageShader.compute.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/SimpleTexture.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/Garden/Shaders/SimpleTexture.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/demo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Grass/demo.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Grass Shader.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Grass Shader.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Map/Forest Floor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Map/Forest Floor.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/foxandworld.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/foxandworld.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SimpleNaturePack/Materials/SimpleNaturePack_Texture_01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SimpleNaturePack/Materials/SimpleNaturePack_Texture_01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/CustomTessellation.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/CustomTessellation.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/PTGrass.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/PTGrass.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimpleNaturePack/SimpleNaturePack_HDRP_2018.4.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimpleNaturePack/SimpleNaturePack_LWRP_2018.4.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SimpleNaturePack/SimpleNaturePack_URP_2019.3.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.polybrush/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +142,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AllowMoreVertices.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD50157E-E00E-45CD-B3C8-BD67012F8804/34/dfcf2845/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatueSpeedBuff.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/GrassPainterEditor.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Shaders/Grass.shader" />
+      <option value="$PROJECT_DIR$/Assets/Grass/GeometryPainterScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Editor/GrassPainterEditor.cs" />
+      <option value="$PROJECT_DIR$/Assets/Shaders/GrassGeometry.shader" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AllowMoreVertices.cs" />
+      <option value="$PROJECT_DIR$/Assets/Tempcredits.txt" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StatueSpeedBuff.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AnimalMovementController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="24BhgCv5teVSAmrM9MSnNNvvJAM" />
@@ -47,6 +170,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -64,10 +189,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10424">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="10424" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -89,6 +214,8 @@
       <workItem from="1643385286554" duration="267000" />
       <workItem from="1643623930028" duration="116000" />
       <workItem from="1643989616277" duration="672000" />
+      <workItem from="1644758304083" duration="9996000" />
+      <workItem from="1645203250294" duration="2929000" />
     </task>
     <task id="LOCAL-00001" summary="Shading of new map">
       <created>1643196638466</created>
@@ -129,5 +256,12 @@
     <MESSAGE value="Shading of new map" />
     <MESSAGE value="pushing" />
     <option name="LAST_COMMIT_MESSAGE" value="pushing" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#UnityEngine.MeshFilter" memberName="mesh" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
