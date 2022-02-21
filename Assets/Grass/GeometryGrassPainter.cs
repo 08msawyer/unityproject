@@ -97,6 +97,7 @@ public class GeometryGrassPainter : MonoBehaviour
  
     void OnScene(SceneView scene)
     {
+        return;
         // only allow painting while this object is selected
         if ((Selection.Contains(gameObject)))
         {

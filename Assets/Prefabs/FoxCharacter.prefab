@@ -535,7 +535,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034896368772071945}
-  m_LocalRotation: {x: 0.00055056956, y: -0.5419143, z: 0.0003550091, w: 0.84043354}
+  m_LocalRotation: {x: 0.01624299, y: -0.54152936, z: 0.010465764, w: 0.8404598}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7115384, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -978,7 +978,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3173909033638699274}
-  m_LocalRotation: {x: -0.014696213, y: -0.54183155, z: -0.009476167, w: 0.84030527}
+  m_LocalRotation: {x: 0.0009931521, y: -0.5416301, z: 0.0006399129, w: 0.84061617}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1023,7 +1023,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7115384, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1119,7 +1119,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3590658683105394021}
-  m_LocalRotation: {x: 0.015837533, y: -0.54181814, z: 0.01021209, w: 0.8402844}
+  m_LocalRotation: {x: 0.031527836, y: -0.5412494, z: 0.020314172, w: 0.8400253}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7115384, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2863,7 +2863,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7115384, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3033,6 +3033,7 @@ GameObject:
   - component: {fileID: 3817137507000758205}
   - component: {fileID: 2025401330822085545}
   - component: {fileID: 843640976224535968}
+  - component: {fileID: 1494426112891893321}
   m_Layer: 0
   m_Name: FoxCharacter
   m_TagString: Untagged
@@ -3121,7 +3122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d07ca2b5d976142afc5b15154b7f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
   damage: 10
   shuriken: {fileID: 5339224149149059571, guid: 57ab558d5d29f524bb1f96e6d2faff6b, type: 3}
 --- !u!114 &2603941798360791284
@@ -3234,6 +3235,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee9dbbf276904a8290aae1485357a0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1494426112891893321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783091311724052530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47654205eb170804886a68bb487cfd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8096428530230243997

@@ -10,7 +10,7 @@ public class NPCSpawner : NetworkBehaviour
     private float _bottomBound;
     
     public GameObject frog;
-    public int initialFrogs = 15;
+    public int initialFrogs = 10;
     public float spawnDelay = 20f;
 
     public override void OnNetworkSpawn()
@@ -51,9 +51,9 @@ public class NPCSpawner : NetworkBehaviour
     private Vector3 GetRandomPosition()
     {
         var worldBounds = GameObject.FindWithTag("World").GetComponentInChildren<Collider>().bounds;
-        var x = Random.Range(worldBounds.min.x * 0.75f, worldBounds.max.x * 0.75f);
-        var z = Random.Range(worldBounds.min.z * 0.75f, worldBounds.max.z * 0.75f);
-        var position = new Vector3(x, worldBounds.max.y * 0.5f, z);
+        var x = Random.Range(worldBounds.min.x, worldBounds.max.x);
+        var z = Random.Range(worldBounds.min.z, worldBounds.max.z);
+        var position = new Vector3(x, worldBounds.max.y, z);
 
         var success = NavMesh.SamplePosition(position, out var hit, worldBounds.max.y, -1);
         if (!success) throw new Exception("AAA");

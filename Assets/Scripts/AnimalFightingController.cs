@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class AnimalFightingController : NetworkBehaviour, IDamageable
@@ -88,8 +91,29 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
         if (_health.Value <= 0)
         {
             _animator.SetTrigger(Death);
+            StartCoroutine(DieCoroutine());
         }
 
+        HealthUpdateClientRpc(_health.Value, _sendToOwner);
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (NetworkManager.ConnectedClients.Count(it => it.Value.PlayerObject != null) == 2)
+        {
+            // Only one player left
+            var lastPlayer = NetworkManager.ConnectedClients.Values.First().PlayerObject;
+            lastPlayer.GetComponent<PlayerHudManager>().ShowScreen("FoxWinScreen", float.MaxValue);
+        }
+
+        NetworkObject.Despawn();
+    }
+
+    public void Heal(float amount)
+    {
+        Assert.IsTrue(IsServer);
+        _health.Value = Math.Max(_health.Value + amount, maxHealth);
         HealthUpdateClientRpc(_health.Value, _sendToOwner);
     }
 
@@ -97,5 +121,9 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
     private void HealthUpdateClientRpc(float newHealth, ClientRpcParams clientRpcParams = default)
     {
         _healthBar.value = newHealth / maxHealth;
+        if (newHealth <= 0)
+        {
+            // gameObject.GetComponent<PlayerHudManager>().ShowScreen();
+        }
     }
 }
