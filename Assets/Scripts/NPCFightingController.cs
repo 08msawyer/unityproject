@@ -7,6 +7,7 @@ public class NPCFightingController : NetworkBehaviour, IDamageable
     private AngryNPCController _angryNpcController;
     
     public float health = 30f;
+    public GameObject mushroomPrefab;
 
     public override void OnNetworkSpawn()
     {
@@ -41,6 +42,12 @@ public class NPCFightingController : NetworkBehaviour, IDamageable
         health -= amount;
         if (health <= 0)
         {
+            if (Random.Range(0, 10) <= 3)
+            {
+                var mushroom = Instantiate(mushroomPrefab);
+                mushroom.transform.position = transform.position;
+                mushroom.GetComponent<NetworkObject>().Spawn();
+            }
             NetworkObject.Despawn();
         }
     }

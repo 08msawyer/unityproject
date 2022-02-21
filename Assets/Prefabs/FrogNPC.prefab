@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  mushroomPrefab: {fileID: 4318322033307105242, guid: 33f425b8d66d5694b8c8deee514c2f58, type: 3}
 --- !u!120 &6603749271315252255
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -113,7 +113,7 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
     public void Heal(float amount)
     {
         Assert.IsTrue(IsServer);
-        _health.Value = Math.Max(_health.Value + amount, maxHealth);
+        _health.Value = Math.Min(_health.Value + amount, maxHealth);
         HealthUpdateClientRpc(_health.Value, _sendToOwner);
     }
 

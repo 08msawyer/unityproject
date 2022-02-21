@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - lb_bird
   - World
   - HUD
   - Zone
+  - FoodMushroom
   layers:
   - Default
   - TransparentFX
