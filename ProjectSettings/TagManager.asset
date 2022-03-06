@@ -3,15 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - lb_bird
+  - World
+  - HUD
+  - Zone
+  - FoodMushroom
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Portals
   - Water
   - UI
-  - 
+  - Zone
   - 
   - 
   - 
