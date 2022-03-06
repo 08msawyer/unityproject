@@ -4,6 +4,9 @@ using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Handles most of the logic relating to players' movement and animations.
+/// </summary>
 public class AnimalMovementController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
@@ -21,6 +24,9 @@ public class AnimalMovementController : NetworkBehaviour
     public float jumpHeight = 5f;
     public float landingMultiplier = 3f;
 
+    /// <summary>
+    /// Initializes all the required fields when this player spawns.
+    /// </summary>
     private void Start()
     {
         _camera = Camera.main;
@@ -30,6 +36,10 @@ public class AnimalMovementController : NetworkBehaviour
         // SpawnAtRandomPosition();
     }
 
+    /// <summary>
+    /// Moves this player to a random point on the map.
+    /// </summary>
+    /// <exception cref="Exception">If no spawn could be found.</exception>
     private void SpawnAtRandomPosition()
     {
         var worldBounds = GameObject.FindWithTag("World").GetComponentInChildren<Collider>().bounds;
@@ -46,6 +56,9 @@ public class AnimalMovementController : NetworkBehaviour
         transform.position = hit.point + _bottomBound * Vector3.up;
     }
 
+    /// <summary>
+    /// Called every frame. Registers that a jump input was pressed.
+    /// </summary>
     private void Update()
     {
         if (IsOwner && Input.GetButtonDown("Jump"))
@@ -54,6 +67,9 @@ public class AnimalMovementController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Called every tick. Handles the actual movement logic based on the player's inputs.
+    /// </summary>
     private void FixedUpdate()
     {
         if (!IsOwner) return;
@@ -102,6 +118,9 @@ public class AnimalMovementController : NetworkBehaviour
         _rigidbody.velocity = velocity;
     }
 
+    /// <summary>
+    /// Causes this player to look forward relative to its camera.
+    /// </summary>
     public void LookForwardRelativeToCamera()
     {
         var cameraTransform = _camera.transform;
@@ -113,6 +132,10 @@ public class AnimalMovementController : NetworkBehaviour
         transform.forward = forward;
     }
 
+    /// <summary>
+    /// Checks if this player is on the ground and can therefore jump.
+    /// </summary>
+    /// <returns>Whether the player is on the ground.</returns>
     private bool IsGrounded()
     {
         var nearGround = Physics.Raycast(transform.position, Vector3.down, out var hit, _bottomBound * landingMultiplier);

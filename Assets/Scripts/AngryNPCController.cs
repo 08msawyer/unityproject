@@ -1,10 +1,12 @@
-using System;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Assertions;
 
+/// <summary>
+/// Handles most of the logic relating to Frogs' movement and behaviour.
+/// </summary>
 public class AngryNPCController : NetworkBehaviour
 {
     private static readonly int Walking = Animator.StringToHash("Walking");
@@ -21,6 +23,9 @@ public class AngryNPCController : NetworkBehaviour
     
     internal GameObject Target;
 
+    /// <summary>
+    /// Initializes all the required fields when the NPC spawns.
+    /// </summary>
     private void Start()
     {
         _agent = GetComponentInParent<NavMeshAgent>();
@@ -31,11 +36,17 @@ public class AngryNPCController : NetworkBehaviour
         _tongueHitbox = transform.parent.GetComponentInChildren<TongueDamageController>().gameObject;
     }
 
+    /// <summary>
+    /// Starts the logic for the tongue animation on the server.
+    /// </summary>
     public override void OnNetworkSpawn()
     {
         if (IsServer) StartCoroutine(TongueLoopCoroutine());
     }
 
+    /// <summary>
+    /// Continuously extends and retracts this frog's tongue.
+    /// </summary>
     private IEnumerator TongueLoopCoroutine()
     {
         while (true)
@@ -55,15 +66,21 @@ public class AngryNPCController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when a player angers this frog by attacking or going near it. Causes the frog to start attacking back.
+    /// </summary>
+    /// <param name="target">The player which angered the frog.</param>
     public void SetTarget(NetworkObject target)
     {
         Assert.IsTrue(IsServer);
         Target = target.gameObject;
-        // // _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
         _tongueActive.Value = true;
         _tongueExtending.Value = true;
     }
 
+    /// <summary>
+    /// Called every frame. Updates the begin and end points of the tongue when extending and retracting.
+    /// </summary>
     private void LateUpdate()
     {
         if (!_tongueActive.Value)
@@ -82,6 +99,9 @@ public class AngryNPCController : NetworkBehaviour
         _tongueHitbox.transform.position = transform.TransformPoint(newTongueEnd);
     }
 
+    /// <summary>
+    /// Called every tick. Handles the animation and movement of the frog.
+    /// </summary>
     private void FixedUpdate()
     {
         if (!IsServer) return;
@@ -97,6 +117,10 @@ public class AngryNPCController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when a player stays near this frog. If we don't have an active target, make it this player.
+    /// </summary>
+    /// <param name="other">The player which is near the frog.</param>
     private void OnTriggerStay(Collider other)
     {
         if (!IsServer || Target != null) return;
@@ -107,6 +131,10 @@ public class AngryNPCController : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when a player leaves this frog's attack radius. If this player was our target, forget about them.
+    /// </summary>
+    /// <param name="other">The player which left the frog's attack radius.</param>
     private void OnTriggerExit(Collider other)
     {
         if (!IsServer) return;

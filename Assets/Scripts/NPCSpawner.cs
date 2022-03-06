@@ -5,21 +5,27 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Spawns [initialFrogs] frogs when the game starts, and continuously spawns another frog every [spawnDelay] seconds.
+/// </summary>
 public class NPCSpawner : NetworkBehaviour
 {
-    private float _bottomBound;
-    
     public GameObject frog;
     public int initialFrogs = 10;
     public float spawnDelay = 20f;
 
+    /// <summary>
+    /// Begins the spawning when the server starts.
+    /// </summary>
     public override void OnNetworkSpawn()
     {
         if (!IsServer) return;
-        _bottomBound = frog.GetComponent<Collider>().bounds.extents.y;
         StartCoroutine(FrogSpawnCoroutine());
     }
 
+    /// <summary>
+    /// A coroutine which spawns the initial batch of frogs, and then continuously spawns more every [spawnDelay] seconds.
+    /// </summary>
     private IEnumerator FrogSpawnCoroutine()
     {
         for (var i = 0; i < initialFrogs; i++)
@@ -33,6 +39,9 @@ public class NPCSpawner : NetworkBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns a single frog at a random location.
+    /// </summary>
     private void SpawnFrog()
     {
         try
@@ -48,6 +57,11 @@ public class NPCSpawner : NetworkBehaviour
         }
     }
     
+    /// <summary>
+    /// Finds a random location on the map.
+    /// </summary>
+    /// <returns>The location.</returns>
+    /// <exception cref="Exception">If a spawn could not be found.</exception>
     private Vector3 GetRandomPosition()
     {
         var worldBounds = GameObject.FindWithTag("World").GetComponentInChildren<Collider>().bounds;
@@ -58,13 +72,5 @@ public class NPCSpawner : NetworkBehaviour
         var success = NavMesh.SamplePosition(position, out var hit, worldBounds.max.y, -1);
         if (!success) throw new Exception("AAA");
         return hit.position;
-
-        // var raycastResult = Physics.Raycast(position, Vector3.down, out var hit);
-        // if (!raycastResult)
-        // {
-        //     throw new Exception($"Could not find a spawn for {this}!");
-        // }
-        //
-        // return hit.point + _bottomBound * Vector3.up;
     }
 }

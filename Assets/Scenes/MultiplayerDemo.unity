@@ -265,7 +265,6 @@ GameObject:
   - component: {fileID: 851129162}
   - component: {fileID: 851129161}
   - component: {fileID: 851129164}
-  - component: {fileID: 851129165}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -373,18 +372,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &851129165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851129160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc8e52692524d84bb618624a5b60386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1115344510
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frog: {fileID: 3098542363118885171, guid: a594da507796a4d4cb249f11244fbb50, type: 3}
+  initialFrogs: 10
+  spawnDelay: 20
 --- !u!4 &1115344513
 Transform:
   m_ObjectHideFlags: 0
