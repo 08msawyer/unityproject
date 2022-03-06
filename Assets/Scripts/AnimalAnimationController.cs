@@ -15,6 +15,11 @@ public class AnimalAnimationController : NetworkBehaviour
     {
         RequestAnimatorSetBoolServerRpc(id, value);
     }
+
+    public void SetFloat(int id, float value)
+    {
+        RequestAnimatorSetFloatServerRpc(id, value);
+    }
     
     public void SetTrigger(int id)
     {
@@ -26,6 +31,12 @@ public class AnimalAnimationController : NetworkBehaviour
     private void RequestAnimatorSetBoolServerRpc(int id, bool value)
     {
         _animator.SetBool(id, value);
+    }
+    
+    [ServerRpc]
+    private void RequestAnimatorSetFloatServerRpc(int id, float value)
+    {
+        _animator.SetFloat(id, value);
     }
     
     [ServerRpc(RequireOwnership = false)]
