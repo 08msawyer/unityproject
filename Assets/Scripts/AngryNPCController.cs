@@ -18,7 +18,8 @@ public class AngryNPCController : NetworkBehaviour
     private LineRenderer _tongue;
     private GameObject _tongueHitbox;
     private Transform _headTransform;
-    private GameObject _target;
+    
+    internal GameObject Target;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class AngryNPCController : NetworkBehaviour
     {
         while (true)
         {
-            if (_target == null) yield return null;
+            if (Target == null) yield return null;
             else if (_tongueExtending.Value)
             {
                 _tongueExtending.Value = false;
@@ -48,7 +49,7 @@ public class AngryNPCController : NetworkBehaviour
             else
             {
                 _tongueExtending.Value = true;
-                _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
+                _tongueTarget.Value = Target.GetComponent<Rigidbody>().worldCenterOfMass;
                 yield return new WaitForSeconds(0.5f);
             }
         }
@@ -57,7 +58,7 @@ public class AngryNPCController : NetworkBehaviour
     public void SetTarget(NetworkObject target)
     {
         Assert.IsTrue(IsServer);
-        _target = target.gameObject;
+        Target = target.gameObject;
         // // _tongueTarget.Value = _target.GetComponent<Rigidbody>().worldCenterOfMass;
         _tongueActive.Value = true;
         _tongueExtending.Value = true;
@@ -84,11 +85,11 @@ public class AngryNPCController : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!IsServer) return;
-        _animator.SetBool(Walking, _target != null);
-        if (_target != null)
+        _animator.SetBool(Walking, Target != null);
+        if (Target != null)
         {
             _agent.isStopped = false;
-            _agent.SetDestination(_target.transform.position);
+            _agent.SetDestination(Target.transform.position);
         }
         else
         {
@@ -98,7 +99,7 @@ public class AngryNPCController : NetworkBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!IsServer || _target != null) return;
+        if (!IsServer || Target != null) return;
 
         if (other.gameObject.GetComponent<AnimalFightingController>() != null)
         {
@@ -110,9 +111,9 @@ public class AngryNPCController : NetworkBehaviour
     {
         if (!IsServer) return;
         
-        if (other.gameObject == _target)
+        if (other.gameObject == Target)
         {
-            _target = null;
+            Target = null;
             _tongueActive.Value = false;
         }
     }

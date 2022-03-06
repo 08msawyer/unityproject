@@ -123,7 +123,7 @@ public class AnimalFightingController : NetworkBehaviour, IDamageable
         _healthBar.value = newHealth / maxHealth;
         if (newHealth <= 0)
         {
-            // gameObject.GetComponent<PlayerHudManager>().ShowScreen();
+            // TODO: possible death screen?
         }
     }
 }
